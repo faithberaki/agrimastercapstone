@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgriMaster</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- login -->
+<section id="login">
+  <div class="box">
+    <h1>AgriMaster</h1>
+    <p>Sign in to view your farm.</p>
+    <label for="uid">User ID</label>
+    <input id="uid" type="text" autocomplete="off" placeholder="Enter your user ID">
+    <button class="go" id="loginBtn">Log in</button>
+    
+  </div>
+</section>
+
+<!-- dashboard-->
+<div id="dash" class="hidden">
+  <header>
+    <h1>AgriMaster</h1>
+    <span>Signed in as <strong id="who">Guest</strong></span>
+  </header>
+  <main>
+    <div class="grid">
+      <div class="card">
+        <h2>Carrot Bed</h2><div class="crop">Carrots</div>
+        <dl><dt>Soil moisture</dt><dd>-</dd>
+            <dt>Temperature</dt><dd>-</dd>
+            <dt>Humidity</dt><dd>-</dd>
+            <dt>Light</dt><dd>-</dd></dl>
+      </div>
+      <div class="card">
+        <h2>Kale Bed</h2><div class="crop">Kale</div>
+        <dl><dt>Soil moisture</dt><dd>-</dd>
+            <dt>Temperature</dt><dd>-</dd>
+            <dt>Humidity</dt><dd>-</dd>
+            <dt>Light</dt><dd>-</dd></dl>
+      </div>
+      <div class="card">
+        <h2>Lettuce Bed</h2><div class="crop">Lettuce</div>
+        <dl><dt>Soil moisture</dt><dd>-</dd>
+            <dt>Temperature</dt><dd>-</dd>
+            <dt>Humidity</dt><dd>-</dd>
+            <dt>Light</dt><dd>-</dd></dl>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Irrigation today</h2>
+      <ul>
+        <li>Carrot Bed: TBD</li>
+        <li>Kale Bed: TBD</li>
+        <li>Lettuce Bed: TBD</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Alerts</h2>
+      <ul>
+        <li>TBD</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+  document.getElementById('loginBtn').addEventListener('click', function () {
+    var id = document.getElementById('uid').value.trim();
+    document.getElementById('who').textContent = id || 'Guest';
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('dash').classList.remove('hidden');
+  });
+  document.getElementById('uid').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('loginBtn').click();
+  });
+</script>
+</body>
+</html>
